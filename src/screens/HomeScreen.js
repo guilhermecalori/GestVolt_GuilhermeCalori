@@ -23,6 +23,18 @@ export default function HomeScreen({ navigation }) {
         }
     }
 
+    const handleNovoProduto = () => {
+        navigation.navigate('NovoProduto');
+    };
+
+    const handleListarTodosProdutos = () => {
+        navigation.navegation('ListarTodosProdutos');
+    };
+
+    const handAlertaProdutos = () => {
+        navigation.navegation('AlertaProdutos');
+    }
+
     //estilo jsx(itens de tabela)
     return (
 
@@ -83,9 +95,71 @@ export default function HomeScreen({ navigation }) {
 
                 </View>
 
-                <View>
+                <View style={styles.header}>
                     <Text style={styles.title}>Ações rápidas:</Text>
                 </View>
+
+                <View style={styles.grid}>
+                    <TouchableOpacity
+                        onPress={handleNovoProduto}
+                        style={[styles.cardAcao, styles.primaryCard]}
+                        activeOpacity={0.8}
+                    >
+
+                        <View style={styles.materialAdd}>
+                            <MaterialIcons name="add-circle" size={28} color="#ffffff" />
+                        </View>
+
+                        <View style={styles.containerTexto}>
+                            <Text style={styles.titleNovoProduto}> Novo Produto </Text>
+                            <Text style={styles.subtituloPlace}> Cadastrar um novo produto</Text>
+                        </View>
+
+                        <MaterialIcons name="chevron-right" size={22} color="#ffffff" />
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={handleListarTodosProdutos}
+                        style={[styles.cardAcao, styles.secundaryCard]}
+                        activeOpacity={0.8}
+                    >
+
+                        <View style={styles.materialList}>
+                            <MaterialIcons name="list" size={28} color="#000000" />
+                        </View>
+
+                        <View style={styles.containerTexto}>
+                            <Text style={styles.titleListarProdutos}> Todos os Produtos </Text>
+                            <Text style={styles.subtituloPlace}> Ver estoque completo</Text>
+                        </View>
+
+                        <MaterialIcons name="chevron-right" size={22} color="#ffffff" />
+                        
+
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        onPress={handAlertaProdutos}
+                        style={[styles.cardAcao, styles.terciaryCard]}
+                        activeOpacity={0.8}
+                    >
+
+                        <View style={styles.materialAlert}>
+                            <MaterialIcons name="warning" size={28} color="#ff0000" />
+                        </View>
+
+                        <View style={styles.containerTexto}>
+                            <Text style={styles.titleAlertaProdutos}> Produtos com Estoque Baixo </Text>
+                            <Text style={styles.subtituloPlace}> Ver produtos com baixo estoque</Text>
+                        </View>
+
+                        <MaterialIcons name="chevron-right" size={22} color="#ffffff" />
+                        
+                    </TouchableOpacity>
+                </View>
+
+
 
 
 
@@ -159,15 +233,15 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.05,
         shadowRadius: 3,
-        elevation: 1, 
-        
+        elevation: 1,
+
     },
-    
+
     metricaValue: {
         fontSize: 18,
         color: "#1d2b3e",
         fontWeight: "bold",
-        
+
     },
 
     metricaLabel: {
@@ -181,7 +255,7 @@ const styles = StyleSheet.create({
         fontSize: 13,
         color: "#1d2b3e",
         fontWeight: "bold",
-        
+
     },
 
     metricIconBg: {
@@ -191,11 +265,113 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginBottom: 6
+    },
+
+    cardAcao: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: '#ffffff',
+        borderRadius: 12,
+        padding: 14,
+        borderWidth: 1,
+        borderColor: '#e0e3e5',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.04,
+        shadowRadius: 3,
+        elevation: 1,
+    },
+
+    primaryCard: {
+        backgroundColor: '#1d2b3e',
+        borderColor: '#1d2b3e',
+    },
+
+    grid: {
+        gap: 10,
+        marginBottom: 26,
+    },
+
+    titleNovoProduto: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#e1e3e6',
+    },
+
+    subtituloPlace: {
+        fontSize: 12,
+        color: '#75777d',
+        marginTop: 1,
+    },
+
+    containerTexto: {
+        flex: 1,
+
+    },
+
+    materialAdd: {
+        width: 42,
+        height: 42,
+        borderRadius: 10,
+        backgroundColor: "rgba(255, 255, 255, 0.15)",
+        alignItems: "center",
+        justifyContent: "center",
+        marginRight: 12,
+    },
+
+    secundaryCard: {
+        backgroundColor: '#ffffff',
+        borderColor: '#000000',
+    },
+
+
+    titleListarProdutos: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#000000',
+    },
+
+    materialList: {
+        width: 42,
+        height: 42,
+        borderRadius: 10,
+        backgroundColor: "rgba(52, 51, 51, 0.15)",
+        alignItems: "center",
+        justifyContent: "center",
+        marginRight: 12,
+    },
+
+    terciaryCard: {
+        backgroundColor: '#ffffff',
+        borderColor: '#000000',
+    },
+
+    titleAlertaProdutos: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: '#000000',
+    },
+
+    materialAlert: {
+        width: 42,
+        height: 42,
+        borderRadius: 10,
+        backgroundColor: "rgba(52, 51, 51, 0.15)",
+        alignItems: "center",
+        justifyContent: "center",
+        marginRight: 12,
     }
-    
 
 
 
 
 
-})
+
+
+
+
+
+
+
+
+});
